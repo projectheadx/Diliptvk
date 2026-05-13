@@ -720,15 +720,15 @@
 			}
 		};
 
-		let currentLang = 'ta';
+		let currentLang = 'en';
 		function updateLanguage() {
 			const langData = translations[currentLang];
 			document.querySelectorAll('[data-key]').forEach(el => {
 				const key = el.getAttribute('data-key');
 				if (langData[key]) el.innerHTML = langData[key];
 			});
-			document.documentElement.lang = currentLang === 'ta' ? 'ta' : 'en';
-			if (currentLang === 'ta') document.body.classList.add('tamil-text');
+			document.documentElement.lang = currentLang === 'en' ? 'ta' : 'en';
+			if (currentLang === 'en') document.body.classList.add('tamil-text');
 			else document.body.classList.remove('tamil-text');
 			document.getElementById('langTextDesktop').innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
 			document.getElementById('langTextMobile').innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
