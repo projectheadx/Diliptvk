@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<title>Advocate Chepauk Dilip | TVK - District Secretary</title>
+	<!-- Font Awesome 6 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<!-- Lightbox -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+			background: #F3B90A;
+			color: #1a1a1a;
+			line-height: 1.5;
+			scroll-behavior: smooth;
+		}
+
+		:root {
+			--tvk-yellow: #F3B90A;
+			--tvk-red: #A00000;
+			--tvk-dark: #1a1a1a;
+			--tvk-white: #FFFFFF;
+			--glass-bg: rgba(255, 255, 255, 0.9);
+			--glass-border: rgba(160, 0, 0, 0.3);
+		}
+
+		@keyframes fadeUp {
+			0% {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.animate-on-scroll {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: all 0.8s ease;
+		}
+
+			.animate-on-scroll.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+		/* Navigation - Mobile First */
+		nav {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			backdrop-filter: blur(12px);
+			background: rgba(26, 26, 26, 0.95);
+			border-bottom: 2px solid var(--tvk-red);
+			z-index: 1000;
+			padding: 0.8rem 1rem;
+		}
+
+		.nav-container {
+			max-width: 1300px;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			position: relative;
+		}
+
+		.logo h2 {
+			font-size: 1.1rem;
+			font-weight: 800;
+			color: var(--tvk-yellow);
+			line-height: 1.2;
+		}
+
+		.logo p {
+			font-size: 0.55rem;
+			letter-spacing: 0.5px;
+			color: #ccc;
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 1.8rem;
+			list-style: none;
+			align-items: center;
+			margin: 0;
+			padding: 0;
+		}
+
+			.nav-links a {
+				color: #fff;
+				text-decoration: none;
+				font-weight: 600;
+				transition: 0.3s;
+				font-size: 0.95rem;
+			}
+
+				.nav-links a:hover {
+					color: var(--tvk-yellow);
+				}
+
+		.mobile-menu-btn {
+			display: none;
+			background: var(--tvk-red);
+			border: none;
+			color: white;
+			font-size: 1.6rem;
+			cursor: pointer;
+			padding: 0.4rem 0.9rem;
+			border-radius: 12px;
+			transition: all 0.3s;
+			z-index: 1001;
+		}
+
+		.lang-switch {
+			background: var(--tvk-red);
+			border: none;
+			color: white;
+			padding: 0.4rem 1rem;
+			border-radius: 30px;
+			font-weight: bold;
+			cursor: pointer;
+			transition: 0.3s;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 0.85rem;
+		}
+
+			.lang-switch:hover {
+				background: var(--tvk-yellow);
+				color: #1a1a1a;
+				transform: scale(1.02);
+			}
+
+		/* Hero Section */
+		.hero {
+			min-height: 100vh;
+			background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(160,0,0,0.5)), url('img/tvk-kolgai-thalaivargal.webp');
+			background-size: cover;
+			background-position: center 30%;
+			background-attachment: fixed;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			position: relative;
+			padding: 6rem 1.5rem 4rem;
+		}
+
+			.hero::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.4) 100%);
+			}
+
+		.hero-content {
+			z-index: 2;
+			max-width: 900px;
+		}
+
+		.hero h1 {
+			font-size: 2.2rem;
+			font-weight: 800;
+			color: #ffffff;
+			margin-bottom: 1rem;
+			text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+		}
+
+		.hero .position {
+			font-size: 0.9rem;
+			background: var(--tvk-red);
+			display: inline-block;
+			padding: 0.4rem 1.2rem;
+			border-radius: 40px;
+			margin-bottom: 1rem;
+			color: white;
+			font-weight: bold;
+		}
+
+		.hero p {
+			color: #f0f0f0;
+			font-size: 1rem;
+		}
+
+		.glass-card {
+			background: var(--glass-bg);
+			backdrop-filter: blur(8px);
+			border: 1px solid var(--tvk-red);
+			border-radius: 2rem;
+			padding: 2rem;
+			transition: all 0.3s;
+			color: #1a1a1a;
+		}
+
+			.glass-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+				background: rgba(255, 255, 255, 1);
+			}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 4rem 1.5rem;
+		}
+
+		.section-title {
+			font-size: 1.8rem;
+			margin-bottom: 2rem;
+			position: relative;
+			display: inline-block;
+			color: #1a1a1a;
+		}
+
+			.section-title:after {
+				content: '';
+				position: absolute;
+				bottom: -10px;
+				left: 0;
+				width: 60px;
+				height: 4px;
+				background: var(--tvk-red);
+				border-radius: 4px;
+			}
+
+		.grid-2, .grid-3, .grid-4 {
+			display: grid;
+			gap: 1.8rem;
+		}
+
+		.grid-2 {
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		}
+
+		.grid-3 {
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		}
+
+		.grid-4 {
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		}
+
+		.profile-section {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.profile-image {
+			flex: 1;
+			text-align: center;
+		}
+
+			.profile-image img {
+				width: 100%;
+				max-width: 320px;
+				border-radius: 30px;
+				border: 4px solid var(--tvk-red);
+				box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+				transition: transform 0.3s;
+				background: white;
+				object-fit: cover;
+			}
+
+		.profile-info {
+			flex: 2;
+		}
+
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.gallery-item {
+			overflow: hidden;
+			border-radius: 20px;
+			transition: 0.3s;
+			border: 2px solid var(--tvk-red);
+			background: white;
+		}
+
+			.gallery-item img {
+				width: 100%;
+				height: 210px;
+				object-fit: cover;
+				transition: 0.3s;
+			}
+
+		.video-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 1.8rem;
+		}
+
+		.video-card {
+			background: white;
+			border-radius: 20px;
+			overflow: hidden;
+			border: 2px solid var(--tvk-red);
+			transition: 0.3s;
+		}
+
+			.video-card iframe {
+				width: 100%;
+				height: 200px;
+				border: none;
+			}
+
+		.btn-red {
+			background: var(--tvk-red);
+			border: 2px solid var(--tvk-red);
+			color: white;
+			padding: 0.7rem 1.8rem;
+			border-radius: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+			display: inline-block;
+			text-decoration: none;
+		}
+
+		.btn-outline {
+			background: transparent;
+			border: 2px solid var(--tvk-red);
+			color: var(--tvk-red);
+			padding: 0.7rem 1.8rem;
+			border-radius: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+			display: inline-block;
+			text-decoration: none;
+		}
+
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+			gap: 1.5rem;
+			text-align: center;
+		}
+
+		.stat-card {
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 20px;
+			padding: 1.5rem;
+			border: 1px solid var(--tvk-red);
+		}
+
+		.stat-number {
+			font-size: 2.2rem;
+			font-weight: 800;
+			color: var(--tvk-red);
+		}
+
+		.journey-card {
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 1.5rem;
+			padding: 1.5rem;
+			text-align: center;
+			border-left: 5px solid var(--tvk-red);
+		}
+
+		footer {
+			background: #1a1a1a;
+			padding: 2rem 1rem;
+			text-align: center;
+			color: var(--tvk-yellow);
+			border-top: 3px solid var(--tvk-red);
+		}
+
+		.social-icons a {
+			color: var(--tvk-yellow);
+			margin: 0 0.7rem;
+			font-size: 1.5rem;
+			transition: 0.3s;
+			display: inline-block;
+		}
+
+		.tamil-text {
+			font-family: 'Noto Sans Tamil', sans-serif;
+		}
+
+		@media (max-width: 880px) {
+			.mobile-menu-btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.nav-links {
+				position: fixed;
+				top: 0;
+				left: -100%;
+				width: 75%;
+				max-width: 320px;
+				height: 100vh;
+				background: rgba(20, 20, 20, 0.98);
+				backdrop-filter: blur(20px);
+				flex-direction: column;
+				justify-content: center;
+				gap: 2rem;
+				transition: left 0.35s ease-in-out;
+				box-shadow: 2px 0 20px rgba(0,0,0,0.5);
+				z-index: 1000;
+				padding: 2rem 1rem;
+				border-right: 2px solid var(--tvk-red);
+			}
+
+				.nav-links.active {
+					left: 0;
+				}
+
+				.nav-links li {
+					width: 100%;
+					text-align: center;
+				}
+
+				.nav-links a {
+					font-size: 1.3rem;
+					padding: 0.75rem;
+					display: block;
+				}
+
+				.nav-links .lang-switch {
+					display: inline-flex;
+					margin-top: 1rem;
+					background: var(--tvk-yellow);
+					color: #1a1a1a;
+				}
+
+			.nav-container .lang-switch {
+				display: none;
+			}
+
+			.mobile-lang-wrap {
+				display: block;
+				text-align: center;
+				margin-top: 1rem;
+			}
+		}
+
+		@media (min-width: 881px) {
+			.nav-container .lang-switch {
+				display: flex;
+			}
+
+			.mobile-lang-wrap {
+				display: none;
+			}
+		}
+
+		.menu-overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.6);
+			backdrop-filter: blur(2px);
+			z-index: 999;
+			display: none;
+		}
+
+			.menu-overlay.active {
+				display: block;
+			}
+
+		@media (max-width: 600px) {
+			.hero h1 {
+				font-size: 1.6rem;
+			}
+
+			.section-title {
+				font-size: 1.6rem;
+				text-align: center;
+				display: block;
+			}
+
+				.section-title:after {
+					left: 50%;
+					transform: translateX(-50%);
+					width: 80px;
+				}
+
+			.profile-section {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.hero {
+				background-attachment: scroll;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<nav>
+		<div class="nav-container">
+			<div class="logo">
+				<h2>ADV. CHEPAUK DILIP</h2>
+				<p>DISTRICT SECRETARY - TVK | CHEPAUK ASSEMBLY</p>
+			</div>
+			<button class="lang-switch" id="langSwitchDesktop"><i class="fas fa-language"></i> <span id="langTextDesktop">தமிழ்</span></button>
+			<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+				<i class="fas fa-bars"></i>
+			</button>
+			<ul class="nav-links" id="navLinks">
+				<li><a href="#home" data-key="nav-home">Home</a></li>
+				<li><a href="#about" data-key="nav-about">About</a></li>
+				<li><a href="#journey" data-key="nav-journey">Journey</a></li>
+				<li><a href="#gallery" data-key="nav-gallery">Gallery</a></li>
+				<li><a href="#videos" data-key="nav-videos">Videos</a></li>
+				<li><a href="#initiatives" data-key="nav-initiatives">Initiatives</a></li>
+				<li class="mobile-lang-wrap">
+					<button class="lang-switch" id="langSwitchMobile" style="background: var(--tvk-yellow); color:#1a1a1a;"><i class="fas fa-language"></i> <span id="langTextMobile">English</span></button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="menuOverlay" class="menu-overlay"></div>
+
+	<!-- Hero Section -->
+	<section id="home" class="hero">
+		<div class="hero-content">
+			<div class="position" data-key="position">District Secretary – Chepauk Assembly | Advocate</div>
+			<h1>Advocate Chepauk Dilip <br> B.L., M.L.</h1>
+			<p data-key="hero-desc">தமிழக வெற்றிக் கழகம் | People's Advocate & Political Leader under <strong style="color: var(--tvk-yellow);">Thalapathy Vijay's</strong> leadership</p>
+			<div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+				<a href="#about" class="btn-red" data-key="btn-know">Know More →</a>
+				<a href="#videos" class="btn-outline" style="background: white;" data-key="btn-watch">Watch Videos →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<div class="container" id="about">
+		<div class="animate-on-scroll">
+			<h2 class="section-title" data-key="about-title">About Advocate Chepauk Dilip</h2>
+			<div class="profile-section">
+				<div class="profile-image">
+					<img src="img/dilippp.jpg" alt="Advocate Chepauk Dilip - TVK District Secretary">
+					<p style="margin-top: 1rem; color: var(--tvk-red); font-weight: bold;">
+						<i class="fas fa-gavel"></i> Adv. Chepauk Dilip | B.L., M.L.
+					</p>
+				</div>
+				<div class="profile-info glass-card">
+					<p style="font-size: 1.1rem; margin-bottom: 1rem;"><strong style="color: var(--tvk-red);" data-key="edu">B.L., M.L. (Law) | Social Activist | Political Strategist</strong></p>
+					<p data-key="about-p1">Under the visionary leadership of our beloved <strong style="color: var(--tvk-red);">Thalapathy Vijay</strong>, Advocate Chepauk Dilip serves as the District Secretary of Tamilaga Vettri Kazhagam (TVK) for the Chepauk Assembly constituency. With a strong legal background and deep commitment to social justice, he bridges the gap between people's grievances and effective political action.</p>
+					<p style="margin-top: 1rem;" data-key="about-p2">As a people's advocate, he has championed numerous public causes, fought for the rights of the marginalized, and now leads TVK's grassroots initiatives in the historic Chepauk region, ensuring that the voice of every citizen reaches the highest echelons of leadership.</p>
+					<div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
+						<span style="background: var(--tvk-red); color: white; padding: 0.4rem 1.2rem; border-radius: 30px;"><i class="fas fa-balance-scale"></i> <span data-key="badge-legal">Legal Eagle</span></span>
+						<span style="background: #1a1a1a; color: var(--tvk-yellow); padding: 0.4rem 1.2rem; border-radius: 30px;"><i class="fas fa-hand-holding-heart"></i> <span data-key="badge-people">People's Champion</span></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Stats Section -->
+	<div class="container">
+		<div class="animate-on-scroll">
+			<div class="stats-grid">
+				<div class="stat-card"><div class="stat-number">12+</div><div data-key="stat1">Years Legal Practice</div></div>
+				<div class="stat-card"><div class="stat-number">150+</div><div data-key="stat2">Public Interest Cases</div></div>
+				<div class="stat-card"><div class="stat-number">25+</div><div data-key="stat3">Wards Organized</div></div>
+				<div class="stat-card"><div class="stat-number">10K+</div><div data-key="stat4">People Reached</div></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Political Journey -->
+	<div class="container" id="journey">
+		<div class="animate-on-scroll">
+			<h2 class="section-title" data-key="journey-title">Political & Legal Journey</h2>
+			<div class="grid-3">
+				<div class="journey-card">
+					<i class="fas fa-gavel" style="font-size: 2rem; color: var(--tvk-red);"></i>
+					<h3 style="color: var(--tvk-red); margin: 0.5rem 0;" data-key="journey-legal">Advocate, Madras High Court</h3>
+					<p data-key="journey-legal-desc">Practicing at Madras High Court, handling civil & criminal litigation, specializing in public interest law.</p>
+				</div>
+				<div class="journey-card">
+					<i class="fas fa-users" style="font-size: 2rem; color: var(--tvk-red);"></i>
+					<h3 style="color: var(--tvk-red); margin: 0.5rem 0;" data-key="journey-social">Social Activist</h3>
+					<p data-key="journey-social-desc">Led multiple protests & awareness campaigns for water rights, housing, and free legal aid in Chepauk.</p>
+				</div>
+				<div class="journey-card">
+					<i class="fas fa-star-of-life" style="font-size: 2rem; color: var(--tvk-red);"></i>
+					<h3 style="color: var(--tvk-red); margin: 0.5rem 0;">Tamilaga Vettri Kazhagam</h3>
+					<p data-key="journey-tvk">District Secretary – Chepauk Assembly Constituency (2024 - Present)</p>
+				</div>
+			</div>
+			<div style="margin-top: 2rem; padding: 1rem; background: rgba(160,0,0,0.1); border-radius: 15px; border-left: 4px solid var(--tvk-red);">
+				<i class="fas fa-landmark" style="color: var(--tvk-red);"></i> <strong data-key="mission-title">Vision for Chepauk:</strong> <span data-key="mission-text">“Empowering the historic Chepauk constituency with transparent governance, legal literacy, and sustainable development under Thalapathy Vijay's leadership.”</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Gallery Section -->
+	<div class="container" id="gallery">
+		<div class="animate-on-scroll">
+			<h2 class="section-title" data-key="gallery-title">Media Gallery</h2>
+			<div class="gallery-grid">
+				<div class="gallery-item"><a href="img/img2222.png" data-lightbox="gallery"><img src="img/img2222.png" alt="Chepauk TVK Event"></a></div>
+				<div class="gallery-item"><a href="img/img321 (1).jpeg" data-lightbox="gallery"><img src="img/img321 (1).jpeg" alt="Legal Aid Camp"></a></div>
+				<div class="gallery-item"><a href="img/img321 (3).jpeg" data-lightbox="gallery"><img src="img/img321 (3).jpeg" alt="People's Meeting"></a></div>
+				<div class="gallery-item"><a href="img/img321 (4).jpeg" data-lightbox="gallery"><img src="img/img321 (4).jpeg" alt="TVK Rally Chepauk"></a></div>
+				<div class="gallery-item"><a href="img/img321 (5).jpeg" data-lightbox="gallery"><img src="img/img321 (5).jpeg" alt="Courtroom Solidarity"></a></div>
+				<div class="gallery-item"><a href="img/dilippp.jpg" data-lightbox="gallery"><img src="img/dilippp.jpg" alt="Campaign with Youth"></a></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Video Section -->
+	<div class="container" id="videos">
+		<div class="animate-on-scroll">
+			<h2 class="section-title" data-key="videos-title">Video Gallery</h2>
+			<div class="video-grid">
+				<div class="video-card"><iframe src="https://www.youtube.com/embed/R1JZNG1GSDw?si=lve0OO1lwPFufG7u" allowfullscreen></iframe><h4><i class="fab fa-youtube" style="color: var(--tvk-red);"></i> <span data-key="video1">TVK Chepauk Inaugural Address</span></h4></div>
+				<div class="video-card"><iframe src="https://www.youtube.com/embed/X84rpaJxeM0?si=mhrnDAcsbVTzdT1q" allowfullscreen></iframe><h4><i class="fab fa-youtube" style="color: var(--tvk-red);"></i> <span data-key="video2">Advocate Dilip Interview</span></h4></div>
+				<div class="video-card"><iframe src="https://www.youtube.com/embed/ROwAZzRhsWM?si=LO_icAJrBjlSKEkM" allowfullscreen></iframe><h4><i class="fab fa-youtube" style="color: var(--tvk-red);"></i> <span data-key="video3">Free Legal Aid Camp Chepauk</span></h4></div>
+			</div>
+			<div style="text-align: center; margin-top: 2rem;">
+				<a href="#" class="btn-red"><i class="fab fa-youtube"></i> <span data-key="subscribe">Subscribe to TVK Official Channel</span></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Initiatives -->
+	<div class="container" id="initiatives">
+		<div class="animate-on-scroll">
+			<h2 class="section-title" data-key="initiatives-title">Key Initiatives</h2>
+			<div class="grid-4">
+				<div class="glass-card"><i class="fas fa-file-signature" style="color: var(--tvk-red); font-size: 2rem;"></i><h3 style="margin: 0.5rem 0;" data-key="init1-title">Free Legal Aid Clinics</h3><p data-key="init1-desc">Monthly legal awareness camps & pro bono services for underprivileged in Chepauk.</p></div>
+				<div class="glass-card"><i class="fas fa-chalkboard-user" style="color: var(--tvk-red); font-size: 2rem;"></i><h3 style="margin: 0.5rem 0;" data-key="init2-title">People's Connect Program</h3><p data-key="init2-desc">Door-to-door grievance redressal and citizen charter implementation.</p></div>
+				<div class="glass-card"><i class="fas fa-water" style="color: var(--tvk-red); font-size: 2rem;"></i><h3 style="margin: 0.5rem 0;" data-key="init3-title">Chepauk Development Forum</h3><p data-key="init3-desc">Focus on infrastructure, clean water, and heritage preservation.</p></div>
+				<div class="glass-card"><i class="fas fa-graduation-cap" style="color: var(--tvk-red); font-size: 2rem;"></i><h3 style="margin: 0.5rem 0;" data-key="init4-title">Legal Literacy for Youth</h3><p data-key="init4-desc">Empowering students with knowledge of their constitutional rights.</p></div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="social-icons">
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+			<a href="#"><i class="fab fa-youtube"></i></a>
+			<a href="#"><i class="fab fa-linkedin-in"></i></a>
+		</div>
+		<p style="margin: 1rem 0;"><span data-key="footer-text">© 2025 Advocate Chepauk Dilip | District Secretary – Tamilaga Vettri Kazhagam (Chepauk Assembly)</span></p>
+		<p><span data-key="footer-tagline">Empowering Chepauk with Justice & Development</span> | <i class="fas fa-crown" style="color: var(--tvk-yellow);"></i> #TVK #ChepaukDilip #PeoplesAdvocate</p>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+	<script>
+		// Translations
+		const translations = {
+			en: {
+				"nav-home": "Home", "nav-about": "About", "nav-journey": "Journey", "nav-gallery": "Gallery", "nav-videos": "Videos", "nav-initiatives": "Initiatives",
+				"position": "District Secretary – Chepauk Assembly | Advocate",
+				"hero-desc": "Tamilaga Vettri Kazhagam | People's Advocate & Political Leader under Thalapathy Vijay's leadership",
+				"btn-know": "Know More →", "btn-watch": "Watch Videos →", "about-title": "About Advocate Chepauk Dilip",
+				"edu": "B.L., M.L. (Law) | Social Activist | Political Strategist",
+				"about-p1": "Under the visionary leadership of our beloved Thalapathy Vijay, Advocate Chepauk Dilip serves as the District Secretary of Tamilaga Vettri Kazhagam (TVK) for the Chepauk Assembly constituency. With a strong legal background and deep commitment to social justice, he bridges the gap between people's grievances and effective political action.",
+				"about-p2": "As a people's advocate, he has championed numerous public causes, fought for the rights of the marginalized, and now leads TVK's grassroots initiatives in the historic Chepauk region, ensuring that the voice of every citizen reaches the highest echelons of leadership.",
+				"badge-legal": "Legal Eagle", "badge-people": "People's Champion",
+				"stat1": "Years Legal Practice", "stat2": "Public Interest Cases", "stat3": "Wards Organized", "stat4": "People Reached",
+				"journey-title": "Political & Legal Journey", "journey-legal": "Advocate, Madras High Court", "journey-legal-desc": "Practicing at Madras High Court, handling civil & criminal litigation, specializing in public interest law.",
+				"journey-social": "Social Activist", "journey-social-desc": "Led multiple protests & awareness campaigns for water rights, housing, and free legal aid in Chepauk.",
+				"journey-tvk": "District Secretary – Chepauk Assembly Constituency (2024 - Present)",
+				"mission-title": "Vision for Chepauk:", "mission-text": "Empowering the historic Chepauk constituency with transparent governance, legal literacy, and sustainable development under Thalapathy Vijay's leadership.",
+				"gallery-title": "Media Gallery", "videos-title": "Video Gallery", "video1": "TVK Chepauk Inaugural Address", "video2": "Advocate Dilip Interview", "video3": "Free Legal Aid Camp Chepauk", "subscribe": "Subscribe to TVK Official Channel",
+				"initiatives-title": "Key Initiatives", "init1-title": "Free Legal Aid Clinics", "init1-desc": "Monthly legal awareness camps & pro bono services for underprivileged in Chepauk.",
+				"init2-title": "People's Connect Program", "init2-desc": "Door-to-door grievance redressal and citizen charter implementation.",
+				"init3-title": "Chepauk Development Forum", "init3-desc": "Focus on infrastructure, clean water, and heritage preservation.",
+				"init4-title": "Legal Literacy for Youth", "init4-desc": "Empowering students with knowledge of their constitutional rights.",
+				"footer-text": "© 2025 Advocate Chepauk Dilip | District Secretary – Tamilaga Vettri Kazhagam (Chepauk Assembly)",
+				"footer-tagline": "Empowering Chepauk with Justice & Development"
+			},
+			ta: {
+				"nav-home": "முகப்பு", "nav-about": "அறிமுகம்", "nav-journey": "பயணம்", "nav-gallery": "புகைப்பட தொகுப்பு", "nav-videos": "காணொளிகள்", "nav-initiatives": "முயற்சிகள்",
+				"position": "மாவட்டச் செயலாளர் – சேப்பாக்கம் சட்டமன்றத் தொகுதி | வழக்கறிஞர்",
+				"hero-desc": "தமிழக வெற்றிக் கழகம் | தளபதி விஜய் தலைமையில் மக்கள் வழக்கறிஞரும் அரசியல் தலைவரும்",
+				"btn-know": "மேலும் அறிக →", "btn-watch": "காணொளிகளைக் காண்க →", "about-title": "வழக்கறிஞர் சேப்பாக்கம் திலீப் பற்றி",
+				"edu": "B.L., M.L. (சட்டம்) | சமூக செயல்பாட்டாளர் | அரசியல் உத்தியாளர்",
+				"about-p1": "எங்கள் அன்புத் தளபதி விஜய் அவர்களின் தூரநோக்கு தலைமையின் கீழ், வழக்கறிஞர் சேப்பாக்கம் திலீப் தமிழக வெற்றிக் கழகத்தின் (TVK) சேப்பாக்கம் சட்டமன்றத் தொகுதிக்கான மாவட்டச் செயலாளராகப் பணியாற்றுகிறார். வலுவான சட்டப் பின்னணியும், சமூக நீதிக்கான ஆழ்ந்த அர்ப்பணிப்பும் கொண்ட இவர், மக்களின் குறைகளுக்கும் பயனுள்ள அரசியல் நடவடிக்கைக்கும் இடையே பாலமாக விளங்குகிறார்.",
+				"about-p2": "மக்கள் வழக்கறிஞராக, ஏராளமான பொதுக் காரணங்களுக்காகப் போராடியவர், ஓரங்கட்டப்பட்டவர்களின் உரிமைகளுக்காகக் குரல் கொடுத்தவர், இப்போது வரலாற்றுச் சிறப்புமிக்க சேப்பாக்கம் பகுதியில் TVK-யின் நிலைமட்ட முயற்சிகளை வழிநடத்துகிறார்.",
+				"badge-legal": "சட்ட வல்லுநர்", "badge-people": "மக்கள் வீரர்",
+				"stat1": "சட்டப் பயிற்சி ஆண்டுகள்", "stat2": "பொது நல வழக்குகள்", "stat3": "ஒருங்கிணைக்கப்பட்ட வார்டுகள்", "stat4": "சென்றடைந்த மக்கள்",
+				"journey-title": "அரசியல் & சட்டப் பயணம்", "journey-legal": "வழக்கறிஞர், சென்னை உயர்நீதிமன்றம்", "journey-legal-desc": "சென்னை உயர்நீதிமன்றத்தில் பயிற்சி, உரிமையியல் மற்றும் குற்றவியல் வழக்குகள், பொது நல சட்டத்தில் நிபுணத்துவம்.",
+				"journey-social": "சமூக ஆர்வலர்", "journey-social-desc": "சேப்பாக்கத்தில் நீர் உரிமை, வீட்டுவசதி மற்றும் இலவச சட்ட உதவிக்கான பல்வேறு போராட்டங்கள் மற்றும் விழிப்புணர்வு பிரச்சாரங்களை முன்னின்று நடத்தியவர்.",
+				"journey-tvk": "தமிழக வெற்றிக் கழகம் - சேப்பாக்கம் சட்டமன்ற மாவட்டச் செயலாளர் (2024 முதல்)",
+				"mission-title": "சேப்பாக்கத்திற்கான பார்வை:", "mission-text": "தளபதி விஜய் தலைமையில் வெளிப்படையான ஆட்சி, சட்டப்பூர்வ கல்வியறிவு மற்றும் நிலையான வளர்ச்சியுடன் வரலாற்று சிறப்புமிக்க சேப்பாக்கம் தொகுதியை மேம்படுத்துதல்.",
+				"gallery-title": "ஊடக தொகுப்பு", "videos-title": "காணொளி தொகுப்பு", "video1": "TVK சேப்பாக்கம் தொடக்க உரை", "video2": "வழக்கறிஞர் திலீப் நேர்காணல்", "video3": "சேப்பாக்கம் இலவச சட்ட உதவி முகாம்", "subscribe": "TVK அதிகாரப்பூர்வ சேனலில் பதிவு செய்யுங்கள்",
+				"initiatives-title": "முக்கிய முயற்சிகள்", "init1-title": "இலவச சட்ட உதவி மையங்கள்", "init1-desc": "சேப்பாக்கத்தில் ஏழை எளியோருக்கு மாதாந்திர சட்ட விழிப்புணர்வு முகாம்கள் மற்றும் இலவச சேவைகள்.",
+				"init2-title": "மக்கள் இணைப்புத் திட்டம்", "init2-desc": "வீடு வீடாகச் சென்று முறைப்பாடுகளைத் தீர்த்தல் மற்றும் குடிமக்கள் உரிமை அட்டை செயல்பாடு.",
+				"init3-title": "சேப்பாக்கம் மேம்பாட்டு மன்றம்", "init3-desc": "உள்கட்டமைப்பு, சுத்தமான தண்ணீர் மற்றும் பாரம்பரியப் பாதுகாப்பில் கவனம்.",
+				"init4-title": "இளைஞர்களுக்கான சட்டக் கல்வியறிவு", "init4-desc": "மாணவர்களுக்கு அரசியலமைப்பு உரிமைகள் குறித்த அதிகாரமளித்தல்.",
+				"footer-text": "© 2025 வழக்கறிஞர் சேப்பாக்கம் திலீப் | மாவட்டச் செயலாளர் – தமிழக வெற்றிக் கழகம் (சேப்பாக்கம் சட்டமன்றத் தொகுதி)",
+				"footer-tagline": "நீதியும் மேம்பாடும் கொண்ட சேப்பாக்கம்"
+			}
+		};
+
+		let currentLang = 'ta';
+		function updateLanguage() {
+			const langData = translations[currentLang];
+			document.querySelectorAll('[data-key]').forEach(el => {
+				const key = el.getAttribute('data-key');
+				if (langData[key]) el.innerHTML = langData[key];
+			});
+			document.documentElement.lang = currentLang === 'ta' ? 'ta' : 'en';
+			if (currentLang === 'ta') document.body.classList.add('tamil-text');
+			else document.body.classList.remove('tamil-text');
+			document.getElementById('langTextDesktop').innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
+			document.getElementById('langTextMobile').innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
+		}
+		function switchLanguage() { currentLang = currentLang === 'ta' ? 'en' : 'ta'; updateLanguage(); }
+		document.getElementById('langSwitchDesktop').addEventListener('click', switchLanguage);
+		document.getElementById('langSwitchMobile').addEventListener('click', switchLanguage);
+
+		// Mobile menu
+		const mobileBtn = document.getElementById('mobileMenuBtn');
+		const navLinks = document.getElementById('navLinks');
+		const overlay = document.getElementById('menuOverlay');
+		function closeMenu() { navLinks.classList.remove('active'); overlay.classList.remove('active'); }
+		function openMenu() { navLinks.classList.add('active'); overlay.classList.add('active'); }
+		mobileBtn.addEventListener('click', (e) => { e.stopPropagation(); navLinks.classList.contains('active') ? closeMenu() : openMenu(); });
+		overlay.addEventListener('click', closeMenu);
+		document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeMenu));
+		updateLanguage();
+
+		// Scroll Animation
+		const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+		document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+		lightbox.option({ 'resizeDuration': 200, 'wrapAround': true });
+	</script>
+</body>
+</html>
