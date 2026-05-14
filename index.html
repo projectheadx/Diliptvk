@@ -399,12 +399,41 @@
 			font-family: 'Noto Sans Tamil', sans-serif;
 		}
 
+		/* Mobile styles - language button always visible */
 		@media (max-width: 880px) {
 			.mobile-menu-btn {
 				display: flex;
 				align-items: center;
 				justify-content: center;
 			}
+
+			/* Desktop language button hidden on mobile */
+			.nav-container .lang-switch.desktop-lang-btn {
+				display: none;
+			}
+
+			/* Standalone mobile language button (outside nav-links) */
+			.mobile-lang-btn {
+				display: flex;
+				background: var(--tvk-yellow);
+				color: #1a1a1a;
+				margin-right: 0.75rem;
+				padding: 0.4rem 0.9rem;
+				border-radius: 30px;
+				font-weight: bold;
+				border: none;
+				align-items: center;
+				gap: 0.5rem;
+				font-size: 0.8rem;
+				cursor: pointer;
+				transition: 0.3s;
+				z-index: 1001;
+			}
+
+				.mobile-lang-btn:hover {
+					background: var(--tvk-red);
+					color: white;
+				}
 
 			.nav-links {
 				position: fixed;
@@ -447,10 +476,6 @@
 					color: #1a1a1a;
 				}
 
-			.nav-container .lang-switch {
-				display: none;
-			}
-
 			.mobile-lang-wrap {
 				display: block;
 				text-align: center;
@@ -459,8 +484,12 @@
 		}
 
 		@media (min-width: 881px) {
-			.nav-container .lang-switch {
+			.nav-container .lang-switch.desktop-lang-btn {
 				display: flex;
+			}
+
+			.mobile-lang-btn {
+				display: none !important;
 			}
 
 			.mobile-lang-wrap {
@@ -520,7 +549,10 @@
 				<h2>ADV. R. DILIP KUMAR</h2>
 				<p>DISTRICT SECRETARY - TVK | CHEPAUK ASSEMBLY</p>
 			</div>
-			<button class="lang-switch" id="langSwitchDesktop"><i class="fas fa-language"></i> <span id="langTextDesktop">தமிழ்</span></button>
+			<!-- Desktop language button -->
+			<button class="lang-switch desktop-lang-btn" id="langSwitchDesktop"><i class="fas fa-language"></i> <span id="langTextDesktop">தமிழ்</span></button>
+			<!-- Mobile language button (always visible on mobile) -->
+			<button class="mobile-lang-btn" id="mobileLangBtn"><i class="fas fa-language"></i> <span id="langTextMobileBtn">தமிழ்</span></button>
 			<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
 				<i class="fas fa-bars"></i>
 			</button>
@@ -721,6 +753,7 @@
 		};
 
 		let currentLang = 'en';
+
 		function updateLanguage() {
 			const langData = translations[currentLang];
 			document.querySelectorAll('[data-key]').forEach(el => {
@@ -728,14 +761,26 @@
 				if (langData[key]) el.innerHTML = langData[key];
 			});
 			document.documentElement.lang = currentLang === 'en' ? 'ta' : 'en';
-			if (currentLang === 'en') document.body.classList.add('tamil-text');
-			else document.body.classList.remove('tamil-text');
-			document.getElementById('langTextDesktop').innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
-			document.getElementById('langTextMobile').innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
+
+			// Update both desktop and mobile language buttons
+			const desktopBtnText = document.getElementById('langTextDesktop');
+			const mobileBtnText = document.getElementById('langTextMobileBtn');
+			const mobileMenuBtnText = document.getElementById('langTextMobile');
+
+			if (desktopBtnText) desktopBtnText.innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
+			if (mobileBtnText) mobileBtnText.innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
+			if (mobileMenuBtnText) mobileMenuBtnText.innerHTML = currentLang === 'ta' ? 'English' : 'தமிழ்';
 		}
-		function switchLanguage() { currentLang = currentLang === 'ta' ? 'en' : 'ta'; updateLanguage(); }
-		document.getElementById('langSwitchDesktop').addEventListener('click', switchLanguage);
-		document.getElementById('langSwitchMobile').addEventListener('click', switchLanguage);
+
+		function switchLanguage() {
+			currentLang = currentLang === 'ta' ? 'en' : 'ta';
+			updateLanguage();
+		}
+
+		// Attach event listeners to all language buttons
+		document.getElementById('langSwitchDesktop')?.addEventListener('click', switchLanguage);
+		document.getElementById('langSwitchMobile')?.addEventListener('click', switchLanguage);
+		document.getElementById('mobileLangBtn')?.addEventListener('click', switchLanguage);
 
 		// Mobile menu
 		const mobileBtn = document.getElementById('mobileMenuBtn');
